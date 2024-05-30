@@ -1,0 +1,23 @@
+.nav .shopping {
+    position: relative;
+    text-align: right;
+}
+
+.nav .shopping a i {
+    width: 30px;
+    color: #fff;
+}
+
+.nav .shopping span {
+    background: red;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    position: absolute;
+    top: 20px;
+    left: 60%;
+    padding: 3px;
+    height: 20px;
+}
