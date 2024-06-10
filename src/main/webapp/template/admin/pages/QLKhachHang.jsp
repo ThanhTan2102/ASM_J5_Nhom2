@@ -98,7 +98,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="<c:url value='/template/admin/pages/QLNhanVien.jsp'/>" class="nav-link">
+                  <a href="<c:url value='/admin'/>" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Quản Lý Nhân Viên</p>
                   </a>
@@ -122,7 +122,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="<c:url value='/template/admin/pages/QLKhuyenMai.jsp'/>" class="nav-link">
+                  <a href="<c:url value='/admin/promotion'/>" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Quản Lý Khuyến Mãi</p>
                   </a>
