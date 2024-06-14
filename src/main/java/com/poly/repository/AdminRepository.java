@@ -12,4 +12,6 @@ public interface AdminRepository extends JpaRepository<AdminEntity, Integer> {
 	@Query(nativeQuery = true, value = "select * from admins where email =:?")
 	AdminEntity findByEmail(String email);
 
+	@Query(nativeQuery = true, value = "select count(*) from admins")
+	Integer countUser();
 }

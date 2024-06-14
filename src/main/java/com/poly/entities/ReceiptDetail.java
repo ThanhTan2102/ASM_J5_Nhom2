@@ -21,13 +21,7 @@ public class ReceiptDetail {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-
-	@Column(name = "quantity", nullable = false)
-	private int quantity;
-
-	@Column(name = "price_unit", nullable = false)
-	private double priceUnit;
+	private Integer id;
 
 	@ManyToOne
 	@JoinColumn(name = "rec_id", nullable = false)
@@ -37,12 +31,29 @@ public class ReceiptDetail {
 	@JoinColumn(name = "prod_id", nullable = false)
 	private ProductEntity product;
 
-// bọn kia chưa làm nên chỉ đếm đơn giản thôi
-//	@ManyToOne
-//	@JoinColumn(name = "topp_id", nullable = false)
-//	private Topping topping; // Assuming you have a Topping entity
-//
-//	@ManyToOne
-//	@JoinColumn(name = "size_id", nullable = false)
-//	private Size size;
+	@ManyToOne
+	@JoinColumn(name = "topp_id", nullable = false)
+	private ToppingEntity topping;
+
+	@ManyToOne
+	@JoinColumn(name = "size_id", nullable = false)
+	private SizeEntity size;
+
+	@ManyToOne
+	@JoinColumn(name = "sugar_id", nullable = false)
+	private SugarEntity sugar;
+
+	@ManyToOne
+	@JoinColumn(name = "ice_id", nullable = false)
+	private IceEntity ice;
+
+	@Column(name = "quantity", nullable = false)
+	private Integer quantity = 0;
+
+	@ManyToOne
+	@JoinColumn(name = "prom_id", nullable = false)
+	private PromotionEntity prom;
+
+	@Column(name = "price_unit", nullable = false)
+	private Double priceUnit;
 }
