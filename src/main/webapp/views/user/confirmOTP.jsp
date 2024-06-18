@@ -14,9 +14,8 @@
 
 
 <!-- Additional CSS Files -->
-<link rel="stylesheet"
-	href="<c:url value='/template/user/assets/css/fontawesome.css'/>">
-<!-- <link rel="stylesheet" href="<c:url value='/template/user/assets/css/templatemo-lugx-gaming.css'/>"> -->
+<link rel="stylesheet" href="assets/css/fontawesome.css">
+<!-- <link rel="stylesheet" href="assets/css/templatemo-lugx-gaming.css"> -->
 <link rel="stylesheet"
 	href="<c:url value='/template/user/assets/css/register.css'/>">
 <link rel="stylesheet"
@@ -42,7 +41,7 @@
 					</div>
 				</div>
 				<!--  -->
-				<form action="/forgotPW" method="post"
+				<form action="/confirmOTP" method="post"
 					class="col-lg-6 align-self-center offset-lg-2">
 					<div class="mb-3">
 						<label
@@ -50,9 +49,15 @@
 							class="form-label">Quên mật khẩu</label>
 					</div>
 					<div class="mb-3">
+
 						<label style="color: white; font-size: 18px;" class="form-label">Email:</label>
-						<input type="email" id="email" name="email" class="form-control"
-							>
+						<input type="email" id="email" name="email" value="${param.email}"
+							class="form-control" required>
+					</div>
+					<div class="mb-3">
+						<label for="otp" style="color: white; font-size: 18px;"
+							class="form-label">Mã xác nhận</label> <input type="text"
+							id="otp" name="otp" class="form-control">
 						<!-- Hiển thị thông báo lỗi -->
 						<c:if test="${not empty error}">
 							<div class="alert alert-danger mt-3">${error}</div>
@@ -61,10 +66,13 @@
 							<div class="alert alert-success mt-3">${message}</div>
 						</c:if>
 					</div>
+					<div class="col">
+						<button type="submit" class="btn btn-danger">Xác nhận</button>
+						<a href="/login" type="button" class="btn btn-secondary">Huỷ</a> <a
+							href="/forgotPW" id="resendBtn" type="button"
+							class="btn btn-success">Trở lại</a>
+					</div>
 
-					<button type="submit" class="btn btn-danger">Xác nhận</button>
-					<a href="/login" type="button" class="btn btn-secondary">Huỷ</a>
-					
 				</form>
 
 			</div>
@@ -72,5 +80,6 @@
 	</div>
 
 </body>
+
 
 </html>

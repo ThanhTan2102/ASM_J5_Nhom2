@@ -54,9 +54,9 @@
 							<li><a href="<c:url value='/views/user/shop.jsp'/>">Cửa Hàng</a></li>
 
 							<li><a href="<c:url value='/views/user/gioihieu.jsp'/>">Giới hiệu</a></li>
-							<li><a href="<c:url value='/views/user/contact.jsp'/>">Liên Hệ</a></li>
+							<li><a href="<c:url value='/contact'/>">Liên Hệ</a></li>
 							<li><a href="<c:url value='/views/user/history.jsp'/>">lịch sử mua hàng</a></li>
-							<li><a href="<c:url value='/views/user/login.jsp'/>">Đăng Nhập</a></li>
+							<li><a href="<c:url value='/login'/>">Đăng Nhập</a></li>
 						</ul>
 						<a class='menu-trigger'>
 							<span>Menu</span>
