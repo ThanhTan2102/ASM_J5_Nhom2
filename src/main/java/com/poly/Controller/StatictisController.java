@@ -44,7 +44,7 @@ public class StatictisController {
 		model.addAttribute("totalUser", totalUser);
 		model.addAttribute("totalReceipt", totalReceipt);
 		model.addAttribute("totalRevenue", totalRevenue);
-
+		// test git
 		return "views/admin/index";
 	}
 }
