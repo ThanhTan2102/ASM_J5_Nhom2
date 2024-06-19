@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+     <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +9,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AdminLTE 3 | General Form Elements</title>
 
+<style>
+.message{
+color: black;
+}
+.mgs_errors {
+	color: red;
+	font-style: italic;
+}
+</style>
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -93,19 +103,19 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="<c:url value='/template/admin/pages/QLKhachHang.jsp'/>" class="nav-link">
+                  <a href="<c:url value='/template/admin/pages/QLKhachHang'/>" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Quản Lý Khách Hàng</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="<c:url value='/template/admin/pages/QLNhanVien.jsp'/>" class="nav-link">
+                  <a href="<c:url value='/admin'/>" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Quản Lý Nhân Viên</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="<c:url value='/template/admin/pages/QLTaiNguyen.jsp'/>" class="nav-link">
+                  <a href="<c:url value='/template/admin/pages/QLTaiNguyen'/>" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Quản Lý Tài Nguyên</p>
                   </a>
@@ -123,7 +133,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="<c:url value='/template/admin/pages/QLKhuyenMai.jsp'/>" class="nav-link">
+                  <a href="<c:url value='/admin/promotion'/>" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Quản Lý Khuyến Mãi</p>
                   </a>
@@ -171,22 +181,26 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
-                                <form>
+                                <form:form action="/template/admin/pages/QLTaiNguyen" modelAttribute="toppingitem" >
                                     <div class="card-body">
+                                    <div class="message">${message }</div>
+                                    <div class="mgs_errors">${message1 }</div>
                                         <div class="form-group">
                                             <label>Tên Topping</label>
-                                            <input type="text" class="form-control" placeholder="Tên Topping">
+                                            <form:input path="name" type="text" class="form-control" placeholder="Tên Topping"/>
+                                            <form:errors path="name" cssClass="mgs_errors"></form:errors>
                                         </div>
                                         <div class="form-group">
                                             <label>Đơn giá</label>
-                                            <input type="text" class="form-control" placeholder="Đơn giá">
+                                            <form:input path="price" type="text" class="form-control" placeholder="Đơn giá"/>
+                                            <form:errors path="price" cssClass="mgs_errors"></form:errors>
                                         </div>
                                     </div>
                                     <!-- /.card-body -->
                                     <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <button formaction="/template/admin/pages/QLTaiNguyen/Topping/create" type="submit" class="btn btn-primary">Submit</button>
                                     </div>
-                                </form>
+                                </form:form>
                             </div>
                             <!-- /.card -->
 
@@ -196,18 +210,22 @@
                                     <h3 class="card-title">Đường</h3>
                                 </div>
                                 <!-- /.card-header -->
-                                <form>
+                                <form:form action="/template/admin/pages/QLTaiNguyen" modelAttribute="sugaritem">
                                     <div class="card-body">
+                                    <div class="message">${message4 }</div>
+                                    <div class="mgs_errors">${message5 }</div>
                                         <div class="form-group">
                                             <label>Tỉ lệ</label>
-                                            <input type="number" class="form-control" placeholder="Tỉ lệ">
+                                            
+                                            <form:input path="name" type="text" class="form-control" placeholder="Tỉ lệ"/>
+                                            <form:errors path="name" cssClass="mgs_errors"></form:errors>
                                         </div>
                                     </div>
                                     <!-- /.card-body -->
                                     <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <button formaction="/template/admin/pages/QLTaiNguyen/sugar/create" type="submit" class="btn btn-primary">Submit</button>
                                     </div>
-                                </form>
+                                </form:form>
                                 <!-- /.card-body -->
                             </div>
                         </div>
@@ -219,18 +237,21 @@
                                 <div class="card-header">
                                     <h3 class="card-title">Đá</h3>
                                 </div>
-                                <form>
+                                <form:form action="/template/admin/pages/QLTaiNguyen" modelAttribute="icesitem">
                                     <div class="card-body">
+                                    <div class="message">${message3 }</div>
+                                    <div class="mgs_errors">${message2 }</div>
                                         <div class="form-group">
                                             <label>Tỉ lệ đá</label>
-                                            <input type="text" class="form-control" placeholder="Tỉ lệ đá">
+                                            <form:input path="name" type="text" class="form-control" placeholder="Tỉ lệ đá"/>
+                                            <form:errors path="name" cssClass="mgs_errors"></form:errors>
                                         </div>
                                     </div>
                                     <!-- /.card-body -->
                                     <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <button formaction="/template/admin/pages/QLTaiNguyen/ices/create" type="submit" class="btn btn-primary">Submit</button>
                                     </div>
-                                </form>
+                                </form:form>
                                 <!-- /.card-body -->
                             </div>
                             <!-- /.card -->
@@ -239,21 +260,25 @@
                                 <div class="card-header">
                                     <h3 class="card-title">Kích thước</h3>
                                 </div>
-                                <form>
+                                <form:form action="/template/admin/pages/QLTaiNguyen" modelAttribute="sizeitem">
                                     <div class="card-body">
+                                    <div class="message">${message6 }</div>
+                                    <div class="mgs_errors">${message7 }</div>
                                         <div class="form-group">
                                             <label>Kích thước</label>
-                                            <input type="text" class="form-control" placeholder="Kích thước">
+                                            <form:input path="name" type="text" class="form-control" placeholder="Kích thước"/>
+                                            <form:errors path="name" cssClass="mgs_errors"></form:errors>
                                         </div>
                                         <div class="form-group">
                                             <label>Thành tiền</label>
-                                            <input type="text" class="form-control" placeholder="Thành tiền">
+                                            <form:input path="price" type="text" class="form-control" placeholder="Thành tiền"/>
+                                            <form:errors path="price" cssClass="mgs_errors"></form:errors>
                                         </div>
                                     </div>
                                     <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <button formaction="/template/admin/pages/QLTaiNguyen/size/create" type="submit" class="btn btn-primary">Submit</button>
                                     </div>
-                                </form>
+                                </form:form>
                             </div>
                         </div>
                         <!--/.col (right) -->

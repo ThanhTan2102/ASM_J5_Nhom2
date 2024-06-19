@@ -110,7 +110,7 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="<c:url value='/template/admin/pages/QLKhachHang.jsp'/>" class="nav-link">
+                  <a href="<c:url value='/template/admin/pages/QLKhachHang'/>" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Quản Lý Khách Hàng</p>
                   </a>
@@ -122,7 +122,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="<c:url value='/template/admin/pages/QLTaiNguyen.jsp'/>" class="nav-link">
+                  <a href="<c:url value='/template/admin/pages/QLTaiNguyen'/>" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Quản Lý Tài Nguyên</p>
                   </a>

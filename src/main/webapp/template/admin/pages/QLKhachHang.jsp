@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+        <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +9,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AdminLTE 3 | General Form Elements</title>
 
+<style>
+.mgs_errors {
+	color: red;
+	font-style: italic;
+}
+</style>
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -16,6 +23,13 @@
   <script src="https://kit.fontawesome.com/0459285e4e.js" crossorigin="anonymous"></script>
   <!-- Theme style -->
   <link rel="stylesheet" href="<c:url value='/template/admin/dist/css/adminlte.min.css'/>">
+  <script type="text/javascript">
+        function confirmDelete(id) {
+            if (confirm("Bạn có chắc chắn muốn xóa khách hàng này không?")) {
+                window.location.href = "/template/admin/pages/QLKhachHang/delete/" + id;
+            }
+        }
+    </script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -92,19 +106,19 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="<c:url value='/template/admin/pages/QLKhachHang.jsp'/>" class="nav-link">
+                  <a href="<c:url value='/template/admin/pages/QLKhachHang'/>" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Quản Lý Khách Hàng</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="<c:url value='/template/admin/pages/QLNhanVien.jsp'/>" class="nav-link">
+                  <a href="<c:url value='/admin'/>" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Quản Lý Nhân Viên</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="<c:url value='/template/admin/pages/QLTaiNguyen.jsp'/>" class="nav-link">
+                  <a href="<c:url value='/template/admin/pages/QLTaiNguyen'/>" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Quản Lý Tài Nguyên</p>
                   </a>
@@ -122,7 +136,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="<c:url value='/template/admin/pages/QLKhuyenMai.jsp'/>" class="nav-link">
+                  <a href="<c:url value='/admin/promotion'/>" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Quản Lý Khuyến Mãi</p>
                   </a>
@@ -187,34 +201,27 @@
                                 <th></th>
                               </tr>
                             </thead>
-                            <tbody>
-                              <tr>
-                                <td>1</td>
-                                <td>changcodon123</td>
-                                <td>Nguyễn Văn Đơn</td>
-                                <td>donvan@gmail.com</td>
-                                <td>0925244286</td>
-                                <td>Tổ 8A, Đường Bùi Hữu Nghĩa, P.Long Tuyền, Bình Thủy, Cần Thơ</td>
-                                <!-- Dữ liệu cột mới -->
-                                <td>Hoạt động</td>
-                                <td><a href="HoaDon.html"><i class="fa-solid fa-pencil"></i></a></td>
-                                <td><a href="HoaDon.html"><i class="fa-solid fa-eraser"></i></a></td>
-                              </tr>
-                              <tr>
-                                <td>1</td>
-                                <td>bachtuyet9090</td>
-                                <td>Lê Thị Tuyết</td>
-                                <td>tuyetle@gmail.com</td>
-                                <td>0925244286</td>
-                                <td>1022, Đường Bùi Hữu Nghĩa, P.Long Tuyền, Bình Thủy, Cần Thơ</td>
-                                <!-- Dữ liệu cột mới -->
-                                <td>Tạm ngừng</td>
-                                <td><a href="HoaDon.html"><i class="fa-solid fa-pencil"></i></a></td>
-                                <td><a href="HoaDon.html"><i class="fa-solid fa-eraser"></i></a></td>
-                              </tr>
-                            </tbody>
+							<tbody>
+							<c:set var="index" value="0"/>
+															<c:forEach var="item" begin="1" items="${items}">
+																<tr>
+														
+																	<td>${index}</td>
+																	<c:set var="index" value="${index + 1 }"/>
+																	<td>${item.username}</td>
+																	<td>${item.fullname}</td>
+																	<td>${item.email}</td>
+																	<td>${item.phone}</td>
+																	<td>${item.address}</td>
+																	<td><a href="/template/admin/pages/QLKhachHang/edit/${item.id }"><i
+																			class="fa-solid fa-pencil"></i></a></td>
+																	<td><a  href="javascript:void(0);" onclick="confirmDelete(${item.id})"><i
+																			class="fa-solid fa-eraser"></i></a></td>
+																</tr>
+															</c:forEach>
+														</tbody>							
 
-                          </table>
+				     </table>
                         </div>
                         <!-- /.card-body -->
                       </div>
@@ -222,52 +229,63 @@
                         <div class="card-header">
                           <h3 class="card-title">Form</h3>
                         </div>
-                        <form>
+                 
+                        <form:form action="/template/admin/pages/QLKhachHang" modelAttribute="item">
+                        
                           <div class="card-body">
+                          <div class="mgs_errors">${message }</div>
+                          <div class="form-group">
+                              <label>ID:</label>
+                              <form:input readonly="true" path="id" class="form-control"/>
+                              
+                            </div>
                             <div class="form-group">
                               <label>Tên tài khoản</label>
-                              <input type="text" class="form-control" placeholder="Tên tài khoản">
+                              <form:input path="username" class="form-control" placeholder="Tên tài khoản"/>
+                              <form:errors path="username" cssClass="mgs_errors"></form:errors>
                             </div>
                             <div class="form-group">
                               <label>Họ và tên</label>
-                              <input type="text" class="form-control" placeholder="Họ và tên">
+                              <form:input path="fullname" class="form-control" placeholder="Họ và tên"/>
+                              <form:errors path="fullname" cssClass="mgs_errors"></form:errors>
+                            </div>
+                            <div class="form-group">
+                              <label>Mật khẩu</label>
+                              <form:input type="password" path="password" class="form-control" placeholder="mật khẩu"/>
+                              <form:errors path="password" cssClass="mgs_errors"></form:errors>
                             </div>
                             <div class="form-group">
                               <label>Email</label>
-                              <input type="email" class="form-control" placeholder="Email">
+                              <form:input  path="email"  type="text" class="form-control" placeholder="Email"/>
+                              <form:errors path="email" cssClass="mgs_errors"></form:errors>
                             </div>
                             <div class="form-group">
                               <label>SĐT</label>
-                              <input type="text" class="form-control" placeholder="SĐT">
+                              <form:input path="phone" type="text" class="form-control" placeholder="SĐT"/>
+                              <form:errors path="phone" cssClass="mgs_errors"></form:errors>
                             </div>
                             <div class="form-group">
                               <label>Địa chỉ</label>
-                              <input type="text" class="form-control" placeholder="Địa chỉ">
+                              <form:input path="address"  type="text" class="form-control" placeholder="Địa chỉ"/>
+                              <form:errors path="address" cssClass="mgs_errors"></form:errors>
                             </div>
                             <div class="form-group ">
                               <label>Trạng thái</label> <br>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
-                                  value="option1" checked>
-                                <label class="form-check-label" for="exampleRadios1">
-                                  Hoạt động
-                                </label>
+                                <form:radiobuttons class="form-check-input" path="action" items="${action }" /> <br>
+		                      
                               </div>
-                              <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
-                                  value="option2">
-                                <label class="form-check-label" for="exampleRadios2">
-                                  Ngừng hoạt động
-                                </label>
-                              </div>
+                              <form:errors path="action" cssClass="mgs_errors"></form:errors>     
                             </div>
                           </div>
                           <!-- /.card-body -->
 
                           <div class="card-footer">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button formaction="/template/admin/pages/QLKhachHang/create" type="submit" class="btn btn-primary">Create</button>
+                            <button formaction="/template/admin/pages/QLKhachHang/update" type="submit" class="btn btn-primary">Update</button>
+                            <button formaction="/template/admin/pages/QLKhachHang" type="submit" class="btn btn-primary">Reset</button>
                           </div>
-                        </form>
+                        </form:form>
                       </div>
                       <!-- /.card -->
                     </div>
