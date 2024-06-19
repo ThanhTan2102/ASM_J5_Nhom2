@@ -133,7 +133,13 @@
                     <p>Quản Lý Loại</p>
                   </a>
                 </li>
-              </ul>
+                <li class="nav-item">
+                  <a href="<c:url value='/statictis'/>" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Thống Kê</p>
+                  </a>
+                </li>
+                              </ul>
             </li>
             <li class="nav-item"> <a href="#" class="nav-link">
               <i class="fa-solid fa-right-from-bracket"></i>

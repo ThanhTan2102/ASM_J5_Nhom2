@@ -91,46 +91,60 @@
 									Quản Lý <i class="fas fa-angle-left right"></i>
 								</p>
 						</a>
-							<ul class="nav nav-treeview">
-								<li class="nav-item"><a
-									href="<c:url value='/template/admin/pages/QLKhachHang.jsp'/>"
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
-										<p>Quản Lý Khách Hàng</p>
-								</a></li>
-								<a href="<c:url value='/admin'/>" class="nav-link">
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
-										<p>Quản Lý Nhân Viên</p>
-								</a></li>
-								<li class="nav-item"><a
-									href="<c:url value='/template/admin/pages/QLTaiNguyen.jsp'/>"
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
-										<p>Quản Lý Tài Nguyên</p>
-								</a></li>
-								<li class="nav-item"><a
-									href="<c:url value='/template/admin/pages/QLSanPham.jsp'/>"
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
-										<p>Quản Lý Sản Phẩm</p>
-								</a></li>
-								<li class="nav-item"><a
-									href="<c:url value='/template/admin/pages/QLHoaDon.jsp'/>"
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
-										<p>Quản Lý Hóa Đơn</p>
-								</a></li>
-								<a href="<c:url value='/admin/promotion'/>" class="nav-link">
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
-										<p>Quản Lý Khuyến Mãi</p>
-								</a></li>
-								<li class="nav-item"><a
-									href="<c:url value='/template/admin/pages/QLLoai.jsp'/>"
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
-										<p>Quản Lý Loại</p>
-								</a></li>
-							</ul></li>
-						<li class="nav-item"><a href="#" class="nav-link"> <i
-								class="fa-solid fa-right-from-bracket"></i>
+						<ul class="nav nav-treeview">
+							<li class="nav-item">
+							  <a href="<c:url value='/template/admin/pages/QLKhachHang.jsp'/>" class="nav-link">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Quản Lý Khách Hàng</p>
+							  </a>
+							</li>
+							<li class="nav-item">
+							  <a href="<c:url value='/admin'/>" class="nav-link">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Quản Lý Nhân Viên</p>
+							  </a>
+							</li>
+							<li class="nav-item">
+							  <a href="<c:url value='/template/admin/pages/QLTaiNguyen.jsp'/>" class="nav-link">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Quản Lý Tài Nguyên</p>
+							  </a>
+							</li>
+							<li class="nav-item">
+							  <a href="<c:url value='/template/admin/pages/QLSanPham.jsp'/>" class="nav-link">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Quản Lý Sản Phẩm</p>
+							  </a>
+							</li>
+							<li class="nav-item">
+							  <a href="<c:url value='/template/admin/pages/QLHoaDon.jsp'/>" class="nav-link">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Quản Lý Hóa Đơn</p>
+							  </a>
+							</li>
+							<li class="nav-item">
+							  <a href="<c:url value='/admin/promotion'/>" class="nav-link">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Quản Lý Khuyến Mãi</p>
+							  </a>
+							</li>
+							<li class="nav-item">
+							  <a href="<c:url value='/template/admin/pages/QLLoai.jsp'/>" class="nav-link">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Quản Lý Loại</p>
+							  </a>
+							</li>
+							<li class="nav-item">
+							  <a href="<c:url value='/statictis'/>" class="nav-link">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Thống Kê</p>
+							  </a>
+							</li>
+							<li class="nav-item"> <a href="#" class="nav-link">
+								<i class="fa-solid fa-right-from-bracket"></i>
 								<p>Đăng Xuất</p>
-						</a></li>
-					</ul>
+							  </a></li>
+						  </ul>
 				</nav>
 			</div>
 		</aside>
